@@ -28,36 +28,19 @@
     {
       "name": "from",
       "doc": "sender name",
-      "type": {
-        "type": "record",
-        "doc": "a record for identity of an agent or a visitor",
-        "name": "user",
-        "fields": [
-          {
-            "name": "name",
-            "doc": "the readable name of a user",
-            "type": "string"
-          },
-          {
-            "name": "id",
-            "doc": "the unique identifier for the user",
-            "type": "string"
-          }
-        ]
-      }
-    },
+      "type": "User"
     {
       "name": "to",
       "doc": "sender name",
-      "type": "user",
+      "type": "User",
       "default": ""
     },
     {
-      "name": "msg_metadata",
+      "name": "MessageMetadata",
       "doc" : "the metadata for the message, system specific",
       "type": {
         "type": "record",
-        "name": "msg_metadata",
+        "name": "MessageMetadata",
         "fields": [
         ]
       }

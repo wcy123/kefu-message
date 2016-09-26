@@ -1,0 +1,17 @@
+{
+  "type": "record",
+  "doc": "a record for identity of an agent or a visitor",
+  "name": "User",
+  "fields": [
+    {
+      "name": "name",
+      "doc": "the readable name of a user",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "doc": "the unique identifier for the user",
+      "type": "string"
+    }
+  ]
+}
