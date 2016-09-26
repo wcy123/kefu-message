@@ -7,15 +7,12 @@
     {
       "name": "id",
       "doc": "- PK, 唯一标示.\n- 是否是 uuid ?\n- 是否可以包含字母数字?\n- 默认值是空字符串",
-      "type": "string",
-      "default": ""
+      "type": "string"
     },
     {
       "name": "message_body",
       "doc": "消息体",
-      "default": null,
-      "type": [
-        "null",
+      "type":
         {
           "type": "record",
           "name": "message_body",
@@ -42,7 +39,6 @@
               "name": "content",
               "doc": "消息体内容, 根据 type 的不同, 可以是一下任意一种类型",
               "type": [
-                "null",
                 {
                   "type": "record",
                   "name": "message_body_txt",
@@ -128,24 +124,6 @@
                   "name": "message_body_video",
                   "doc": "视频片段",
                   "fields": [
-                    {
-                      "type": "string",
-                      "name": "url",
-                      "doc": "文件下载位置",
-                      "default": ""
-                    },
-                    {
-                      "type": "string",
-                      "name": "secret",
-                      "doc": "下载用的 token ",
-                      "default": ""
-                    },
-                    {
-                      "type": "string",
-                      "name": "filename",
-                      "doc": "文件名称",
-                      "default": ""
-                    },
                     {
                       "type": "string",
                       "name": "url",
@@ -299,60 +277,109 @@
             }
           ]
         }
-      ]
     },
     {
       "name": "tenant_id",
       "doc": "租户 ID , 可以为 NULL",
       "default": null,
-      "type": [
-        "null",
-        "int"
-      ]
+      "type": "int"
     },
     {
       "name": "channel",
-      "doc": "通道, 可以为 NULL",
-      "default": null,
-      "type": [
-        "null",
-        {
-          "type": "record",
-          "name": "channel",
-          "doc": "信道",
-          "fields": [
-            {
-              "type": {
-                "type": "enum",
-                "name": "channel_type",
-                "doc": "信道类型\n\n- \"im\" 环信 IM 通道\n- \"weixin\", 微信通道\n- \"weibo\", 微博通道\n- \"callcenter1\", 呼叫中心通道\n- \"email\", 电子邮件通道\n",
-                "symbols": [
-                  "im",
-                  "weixin",
-                  "weibo",
-                  "callcenter1",
-                  "email"
-                ]
-              },
-              "name": "type",
-              "doc": "通道类型",
-              "default": "im"
+      "doc": "通道",
+      "type": {
+        "type": "record",
+        "name": "channel",
+        "doc": "信道",
+        "fields": [
+          {
+            "type": {
+              "type": "enum",
+              "name": "channel_type",
+              "doc": "信道类型\n\n- \"im\" 环信 IM 通道\n- \"weixin\", 微信通道\n- \"weibo\", 微博通道\n- \"callcenter1\", 呼叫中心通道\n- \"email\", 电子邮件通道\n",
+              "symbols": [
+                "im",
+                "weixin",
+                "weibo",
+                "callcenter1",
+                "email"
+              ]
             },
-            {
-              "type": "long",
-              "name": "id",
-              "doc": "通道标示",
-              "default": -1
-            },
-            {
-              "type": "string",
-              "name": "name",
-              "doc": "通道名称",
-              "default": ""
-            }
-          ]
-        }
-      ]
+            "name": "type",
+            "doc": "通道类型",
+            "default": "im"
+          },
+          {
+            "type": "long",
+            "name": "id",
+            "doc": "通道标示",
+            "default": -1
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "doc": "通道名称",
+            "default": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "from",
+      "doc": "sender name",
+      "type": {
+        "type": "record",
+        "doc": "a record for identity of an agent or a visitor",
+        "name": "user",
+        "fields": [
+          {
+            "name": "name",
+            "doc": "the readable name of a user",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "doc": "the unique identifier for the user",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "to",
+      "doc": "sender name",
+      "type": "user",
+      "default": ""
+    },
+    {
+      "name": "msg_metadata",
+      "doc" : "the metadata for the message, system specific",
+      "type": {
+        "type": "record",
+        "name": "msg_metadata",
+        "fields": [
+        ]
+      }
+    },
+    {
+      "name": "sys_ext",
+      "doc" : "extentions for the KEFU system",
+      "type": {
+        "type": "record",
+        "name": "sys_ext",
+        "fields": [
+        ]
+      }
+    },
+    {
+      "name": "biz_ext",
+      "doc" : "for business specific extensions",
+      "type": {
+        "type": "record",
+        "name": "biz_ext",
+        "fields": [
+        ]
+      }
     }
   ]
 }
