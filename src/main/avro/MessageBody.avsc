@@ -5,23 +5,6 @@
   "doc": "消息体格式",
   "fields": [
     {
-      "name": "type",
-      "doc": "消息体类型",
-      "type": {
-        "type": "enum",
-        "doc": "消息体格式的类型\n\n- `txt`: `message_body_txt` 文本格式\n- `file`: `message_body_file` 附件\n- `audio`:　`message_body_audio` 语音片段\n- `video` : `message_body_video` 视频片段\n- `img` : `message_body_img` 图片\n- `cmd` : `message_body_cmd` 扩展命令\n- `loc` : `message_body_loc` 地理位置信息\n\n  ",
-        "name": "MessageType",
-        "symbols": [
-          "txt",
-          "file",
-          "audio",
-          "img",
-          "cmd",
-          "loc"
-        ]
-      }
-    },
-    {
       "name": "content",
       "doc": "消息体内容, 根据 type 的不同, 可以是一下任意一种类型",
       "type": [
