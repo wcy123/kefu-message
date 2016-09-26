@@ -52,7 +52,7 @@
       "type": "SysExt"
     },
     {
-      "name": "biz_ext",
+      "name": "bizExt",
       "doc" : "for business specific extensions",
       "type": "BizExt"
     }
