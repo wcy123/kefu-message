@@ -29,6 +29,7 @@
       "name": "from",
       "doc": "sender name",
       "type": "User"
+    },
     {
       "name": "to",
       "doc": "sender name",
@@ -46,24 +47,14 @@
       }
     },
     {
-      "name": "sys_ext",
+      "name": "sysExt",
       "doc" : "extentions for the KEFU system",
-      "type": {
-        "type": "record",
-        "name": "sys_ext",
-        "fields": [
-        ]
-      }
+      "type": "SysExt"
     },
     {
       "name": "biz_ext",
       "doc" : "for business specific extensions",
-      "type": {
-        "type": "record",
-        "name": "biz_ext",
-        "fields": [
-        ]
-      }
+      "type": "BizExt"
     }
   ]
 }
