@@ -27,7 +27,7 @@
       "type": [
         {
           "type": "record",
-          "name": "message_body_txt",
+          "name": "MessageBodyTxt",
           "doc": "文本消息",
           "fields": [
             {
@@ -39,7 +39,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_file",
+          "name": "MessageBodyFile",
           "doc": "附件消息",
           "fields": [
             {
@@ -70,7 +70,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_audio",
+          "name": "MessageBodyAudio",
           "doc": "音频片段",
           "fields": [
             {
@@ -107,7 +107,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_video",
+          "name": "MessageBodyVideo",
           "doc": "视频片段",
           "fields": [
             {
@@ -174,7 +174,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_img",
+          "name": "MessageBodyImage",
           "doc": "图片消息",
           "fields": [
             {
@@ -223,7 +223,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_cmd",
+          "name": "MessageBodyCmd",
           "doc": "命令消息",
           "fields": [
             {
@@ -236,7 +236,7 @@
         },
         {
           "type": "record",
-          "name": "message_body_loc",
+          "name": "MessageBodyLoc",
           "doc": "地理位置信息消息",
           "fields": [
             {

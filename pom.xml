@@ -54,6 +54,9 @@
                             </includes>
                             <imports>
                                 <import>
+                                    ${project.basedir}/src/main/avro/Channel.avsc
+                                </import>
+                                <import>
                                     ${project.basedir}/src/main/avro/MessageBody.avsc
                                 </import>
                             </imports>
