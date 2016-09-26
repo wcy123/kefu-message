@@ -57,6 +57,12 @@
                                     ${project.basedir}/src/main/avro/User.avsc
                                 </import>
                                 <import>
+                                    ${project.basedir}/src/main/avro/SysExt.avsc
+                                </import>
+                                <import>
+                                    ${project.basedir}/src/main/avro/BizExt.avsc
+                                </import>
+                                <import>
                                     ${project.basedir}/src/main/avro/Channel.avsc
                                 </import>
                                 <import>
