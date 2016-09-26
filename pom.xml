@@ -49,6 +49,14 @@
                             <sourceDirectory>${project.basedir}/src/main/avro/</sourceDirectory>
                             <outputDirectory>${project.basedir}/target/generated-sources
                             </outputDirectory>
+                            <includes>
+                                <include>**/*.avro</include>
+                            </includes>
+                            <imports>
+                                <import>
+                                    ${project.basedir}/src/main/avro/MessageBody.avro
+                                </import>
+                            </imports>
                         </configuration>
                     </execution>
                 </executions>
