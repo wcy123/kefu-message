@@ -45,7 +45,7 @@
             },
             {
               "type": "int",
-              "name": "file_length",
+              "name": "fileLength",
               "doc": "文件长度, 单位字节",
               "default": 0
             }
@@ -82,7 +82,7 @@
             },
             {
               "type": "int",
-              "name": "file_length",
+              "name": "fileLength",
               "doc": "文件长度, 单位字节",
               "default": 0
             }
@@ -125,13 +125,13 @@
             },
             {
               "type": "string",
-              "name": "thumb_url",
+              "name": "thumbUrl",
               "doc": "缩略图的下载位置",
               "default": ""
             },
             {
               "type": "string",
-              "name": "thumb_secret",
+              "name": "thumbSecret",
               "doc": "下载缩略图用的 token",
               "default": ""
             },
@@ -149,7 +149,7 @@
             },
             {
               "type": "int",
-              "name": "file_length",
+              "name": "fileLength",
               "doc": "视频文件长度, 单位字节",
               "default": 0
             }
@@ -192,13 +192,13 @@
             },
             {
               "type": "string",
-              "name": "thumb_url",
+              "name": "thumbUrl",
               "doc": "缩略图的下载位置",
               "default": ""
             },
             {
               "type": "string",
-              "name": "thumb_secret",
+              "name": "thumbSecret",
               "doc": "下载缩略图用的 token",
               "default": ""
             }
