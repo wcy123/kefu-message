@@ -50,11 +50,11 @@
                             <outputDirectory>${project.basedir}/target/generated-sources
                             </outputDirectory>
                             <includes>
-                                <include>**/*.avro</include>
+                                <include>**/*.avsc</include>
                             </includes>
                             <imports>
                                 <import>
-                                    ${project.basedir}/src/main/avro/MessageBody.avro
+                                    ${project.basedir}/src/main/avro/MessageBody.avsc
                                 </import>
                             </imports>
                         </configuration>
