@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "SysExt",
+  "namespace": "com.easemob.kefu.api.protocol",
   "fields": [
   ]
 }

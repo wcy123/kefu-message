@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "BizExt",
+  "namespace": "com.easemob.kefu.api.protocol",
   "fields": [
   ]
 }
