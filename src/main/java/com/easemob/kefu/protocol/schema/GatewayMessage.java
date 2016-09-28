@@ -1,6 +1,7 @@
 package com.easemob.kefu.protocol.schema;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
@@ -17,6 +18,7 @@ import lombok.Data;
 
 @Data
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder=GatewayMessage.GatewayMessageBuilder.class)
 public class GatewayMessage {
     /**
@@ -50,6 +52,32 @@ public class GatewayMessage {
      */
     private final MessageBody messageBody;
 
+
+    /**
+     * 信道信息
+     */
+    private final Channel channel;
+
+    /**
+     * 发送者
+     *
+     * 逻辑标识, 和具体具体业务渠道无关
+     * TODO: 进一步明确这个字段的意义, 是否引入 User 类型?
+     */
+    private final String from;
+
+    /**
+     * 目的接收者
+     *
+     * 逻辑标识, 和具体具体业务渠道无关
+     * TODO: 进一步明确这个字段的意义
+     */
+    private final String to;
+
+    /**
+     * 访客信息
+     */
+    private final Vistor visitor;
 
     /**
      * https://gist.github.com/pcarrier/14d3a8e249d804cfbdee

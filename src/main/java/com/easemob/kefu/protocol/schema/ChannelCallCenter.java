@@ -4,26 +4,19 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-import org.apache.avro.reflect.AvroDefault;
-
 import lombok.Builder;
 import lombok.Data;
 
 /**
- * 文本消息
- *
- * Created by wangchunye on 9/26/16.
+ * Created by wangchunye on 9/28/16.
  */
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonDeserialize(builder=MessageBodyTxt.MessageBodyTxtBuilder.class)
-public class MessageBodyTxt implements MessageBody{
-    /** 消息内容 */
-    @AvroDefault("\"\"")
-    private final String msg;
-
-
+@JsonDeserialize(builder=ChannelCallCenter.ChannelCallCenterBuilder
+        .class)
+public class ChannelCallCenter implements Channel{
     @JsonPOJOBuilder(withPrefix = "")
-    public static final class MessageBodyTxtBuilder{}
+    public static final class ChannelCallCenterBuilder {
+    }
 }

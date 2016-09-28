@@ -1,5 +1,6 @@
 package com.easemob.kefu.protocol.schema;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
@@ -15,6 +16,7 @@ import lombok.Data;
  */
 @Data
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder=MessageBodyLoc.MessageBodyLocBuilder.class)
 public class MessageBodyLoc implements MessageBody{
     @AvroDefault("\"\"")
