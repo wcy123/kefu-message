@@ -23,11 +23,7 @@ public class GatewayMessageTest {
                                 .build()
                 ).id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"audio\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"length\":100}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"audio\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"length\":100}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyAudio);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -41,11 +37,7 @@ public class GatewayMessageTest {
                                 .build()
                 ).id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"cmd\",\"action\":\"what?\"}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"cmd\",\"action\":\"what?\"}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyCmd);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -62,11 +54,7 @@ public class GatewayMessageTest {
                                 .build()
                 ).id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"file\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"fileLength\":100}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"file\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"fileLength\":100}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyFile);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -89,11 +77,7 @@ public class GatewayMessageTest {
                                 .build()
                 ).id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"img\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"fileLength\":1000,\"size\":{\"width\":400,\"height\":600},\"thumb\":\"thumb\",\"thumbFileLength\":100,\"thumbFilename\":\"thumbFilename\",\"thumbSize\":{\"width\":40,\"height\":60},\"thumbSecret\":\"tell me\"}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"img\",\"url\":\"http://unknown.host.com/unknown.png\",\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"fileLength\":1000,\"size\":{\"width\":400,\"height\":600},\"thumb\":\"thumb\",\"thumbFileLength\":100,\"thumbFilename\":\"thumbFilename\",\"thumbSize\":{\"width\":40,\"height\":60},\"thumbSecret\":\"tell me\"}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyImage);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -108,11 +92,7 @@ public class GatewayMessageTest {
                                 .build())
                         .id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"loc\",\"addr\":\"nowhere\",\"lat\":1.0,\"lng\":2.0}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"loc\",\"addr\":\"nowhere\",\"lat\":1.0,\"lng\":2.0}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyLoc);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -125,12 +105,8 @@ public class GatewayMessageTest {
                                 .build())
                         .id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"txt\"," +
-                "\"msg\":\"hello world\"}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"txt\"," +
+                "\"msg\":\"hello world\"}}");
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyTxt);
         Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
@@ -156,13 +132,29 @@ public class GatewayMessageTest {
                                 .build()
                 ).id("1").build();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
-        Assert.assertEquals("{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"video\",\"url\":\"http://unknown.host.com/unknown.png\",\"fileLength\":1000,\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"size\":{\"width\":400,\"height\":600},\"thumb\":\"thumb\",\"thumbFileLength\":100,\"thumbFilename\":\"thumbFilename\",\"thumbSize\":{\"width\":40,\"height\":60},\"thumbSecret\":\"tell me\",\"title\":\"bad movie\",\"description\":\"you don't wanna know\"}}", jsonDataString);
-        final GatewayMessage gatewayMessageCloned = mapper.readValue(jsonDataString, GatewayMessage
-                .class);
+        String expectedJsonString = "{\"id\":\"1\",\"timestamp\":0,\"messageBody\":{\"type\":\"video\",\"url\":\"http://unknown.host.com/unknown.png\",\"fileLength\":1000,\"secret\":\"do not tell anyone\",\"filename\":\"sampleFileName\",\"size\":{\"width\":400,\"height\":600},\"thumb\":\"thumb\",\"thumbFileLength\":100,\"thumbFilename\":\"thumbFilename\",\"thumbSize\":{\"width\":40,\"height\":60},\"thumbSecret\":\"tell me\",\"title\":\"bad movie\",\"description\":\"you don't wanna know\"}}";
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, expectedJsonString);
         Assert.assertTrue(gatewayMessageCloned.getMessageBody() instanceof MessageBodyVideo);
-        Assert.assertEquals(gatewayMessage, gatewayMessageCloned);
     }
 
+
+    @Test
+    public void testMessageFromTo() throws Exception {
+        final GatewayMessage gatewayMessage =
+                GatewayMessage.builder()
+                        .from("little Ming")
+                        .to("little Li")
+                        .id("1").build();
+        final GatewayMessage gatewayMessageCloned = getGatewayMessage(gatewayMessage, "{\"id\":\"1\",\"timestamp\":0,\"from\":\"little Ming\",\"to\":\"little Li\"}");
+    }
+
+    private static GatewayMessage getGatewayMessage(GatewayMessage gatewayMessage, String expectedJsonString) throws java.io.IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonDataString = mapper.writeValueAsString(gatewayMessage);
+        Assert.assertEquals(expectedJsonString, jsonDataString);
+        final GatewayMessage value = mapper.readValue(jsonDataString, GatewayMessage
+                .class);
+        Assert.assertEquals(gatewayMessage, value);
+        return value;
+    }
 }
